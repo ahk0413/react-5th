@@ -9,7 +9,6 @@ function Form(){
   const [status, setStatus] = useState<Status>('typing');
   const [error,setError] = useState<Error | null>(null);
 
-
   if(status === 'success'){
     return <h1>정답입니다~~~! </h1>
   }
@@ -30,9 +29,7 @@ function Form(){
       if(err instanceof Error){
         setError(err)
       }
-      
     }
-    
   }
   
   return (
@@ -54,6 +51,7 @@ function Form(){
       {error !== null && <p style={{color:'red'}}>{error.message}</p>}
       {status === 'submitting' && <p>loading...</p>}
   </form>
+  
   )
 }
 

@@ -1,3 +1,5 @@
+
+
 const template = /* html */`
   <form id="form">
     <h2>프로그래머스 퀴즈!</h2>
@@ -57,8 +59,8 @@ const submitForm = (answer:string):Promise<string> => {
 
 const handleFormSubmit = async (e:SubmitEvent) => {
   e.preventDefault();
-  disable(textarea)
-  disable(button)
+  disable(textarea);
+  disable(button);
   show(loading);
   
   try{
@@ -67,7 +69,7 @@ const handleFormSubmit = async (e:SubmitEvent) => {
     hide(form);
   }
   catch(err){
-    show(error);
+    show(error)
     if(err instanceof Error){
       error.textContent = err.message
     }
@@ -77,6 +79,7 @@ const handleFormSubmit = async (e:SubmitEvent) => {
     enable(textarea);
     enable(button);
   }
+  
 }
 
 
