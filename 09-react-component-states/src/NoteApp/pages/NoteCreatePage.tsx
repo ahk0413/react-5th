@@ -6,12 +6,12 @@ import { ROUTES } from "../routes";
 interface Props{
   newNoteId: number;
   onCreate: (newNoteItem:Note) => void;
-  onChangeRoot: (nextRoute:string, pickNoteId?:number) => void;
+  onChangeRoute: (nextRoute:string, pickNoteId?:number) => void;
 }
 
-function NoteCreatePage({newNoteId,onCreate,onChangeRoot}:Props) {
+function NoteCreatePage({newNoteId,onCreate,onChangeRoute}:Props) {
 
-  const handleBackLink = () => onChangeRoot(ROUTES.list)
+  const handleBackLink = () => onChangeRoute(ROUTES.list)
 
   return (
     <div className="NoteCreatePage">
