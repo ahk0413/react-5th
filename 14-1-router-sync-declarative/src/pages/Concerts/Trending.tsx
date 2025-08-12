@@ -1,4 +1,6 @@
 function Trending() {
-  return <h1>Trending</h1>;
+  return (
+    <h1>Trending</h1>
+  )
 }
-export default Trending;
+export default Trending
