@@ -49,6 +49,8 @@ const City = lazy(() => import("@/pages/Concerts/City.tsx"));
 
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
+const UserDetail = lazy(() => import("@/pages/User/UserDetail"));
+
 export const routes = createBrowserRouter([
   {
     path: "/",
@@ -112,6 +114,27 @@ export const routes = createBrowserRouter([
             // },
           },
         ],
+      },
+      {
+        path: "users/:userId",
+        handle: { label: "users", showInNav: false },
+        Component: UserDetail,
+        loader: async ({ params }) => {
+          // react-router 알아서 실행 해당 컴포넌트 페이지에 들어가기 전
+          // const res = await fetch(
+          //   `https://jsonplaceholder.typicode.com/users/${params.userId}`
+          // );
+          // return res.json();
+
+          return {
+            user: fetch(
+              `https://jsonplaceholder.typicode.com/users/${params.userId}`
+            ).then((res) => {
+              if (!res.ok) throw new Error("유저 어딨습니까?");
+              return res.json();
+            }),
+          };
+        },
       },
     ],
   },
