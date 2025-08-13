@@ -1,5 +1,5 @@
-import { Links, Meta, Outlet, Scripts } from "react-router";
-import GlobalNav from "./components/GlobalNav";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import GlobalNav from './components/GlobalNav';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -19,6 +19,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        <ScrollRestoration />
         <Scripts />
       </body>
     </html>
