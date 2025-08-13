@@ -32,7 +32,7 @@ const b = Root
 // import NotFound from "@/pages/NotFound";
 import { loader as trendingLoader } from "@/pages/Concerts/Trending.tsx";
 import { lazy } from "react";
-import { createBrowserRouter, Outlet } from "react-router";
+import { createBrowserRouter, Outlet, redirect } from "react-router";
 
 const Root = lazy(() => import("@/pages"));
 const Home = lazy(() => import("@/pages/Home"));
@@ -50,6 +50,7 @@ const City = lazy(() => import("@/pages/Concerts/City.tsx"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 
 const UserDetail = lazy(() => import("@/pages/User/UserDetail"));
+const NewUser = lazy(() => import("@/pages/User/NewUser"));
 
 export const routes = createBrowserRouter([
   {
@@ -134,6 +135,26 @@ export const routes = createBrowserRouter([
               return res.json();
             }),
           };
+        },
+      },
+      {
+        path: "users/new",
+        Component: NewUser,
+        // lazy: async () => {
+        //   return {
+        //     Component:'',
+        //     loader:,
+        //     action
+        //   }
+        // }
+        action: async ({ request }) => {
+          const formData = await request.formData();
+          const name = formData.get("name") as string;
+          const email = formData.get("email") as string;
+
+          console.log(name, email);
+
+          return redirect("/");
         },
       },
     ],
