@@ -3,6 +3,7 @@ import Button_clsx from './components/Button_clsx';
 import Button_cva from './components/Button_cva';
 import Button_tw from './components/Button_tw';
 import Button_twMerge from './components/Button_twMerge';
+import Card from './components/Card';
 import ChatCard from './components/ChatCard';
 import Profile from './components/Profile';
 import ProfileCard from './components/ProfileCard';
@@ -48,9 +49,56 @@ function App() {
 
       <hr className="my-5" />
 
-      <Button_cva intent="primary" className="">
+      <Button_cva
+        intent="primary"
+        block
+        size="md"
+        className="bg-indigo-500"
+        loading={true}
+      >
         Call To Action
       </Button_cva>
+
+      <hr className="my-5" />
+
+      <Button_cva
+        intent="primary"
+        block
+        size="lg"
+        className="text-6xl"
+        loading={true}
+      >
+        Call To Action
+      </Button_cva>
+
+      <hr className="my-5" />
+
+      <Button_cva>Call To Action</Button_cva>
+
+      <Card
+        type="primary"
+        logoSrc="facebook"
+        rate="$120/hr"
+        title="Senior UI Developer"
+        company="facebook"
+      ></Card>
+
+      <Card
+        type="secondary"
+        logoSrc="google"
+        rate="$260/hr"
+        title="Senior Data Engineer"
+        company="Google"
+      />
+
+      <Card
+        type="tertiary"
+        logoSrc="airbnb"
+        rate="$80/hr"
+        title="Senior UX Designer"
+        company="Airbnb"
+        className="max-w-[400px]"
+      />
     </div>
   );
 }
