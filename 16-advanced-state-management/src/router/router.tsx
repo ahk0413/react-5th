@@ -1,22 +1,39 @@
+import type { AppRoute } from '@/@types/global';
 import Home from '@/pages/Home';
 import Root from '@/Root';
 import { configRoutes } from '@/utils/configRoutes';
+import { getNavigationItems } from '@/utils/getNavigationItems';
 import { createBrowserRouter } from 'react-router';
 
-const navigation = [
+const navigation: AppRoute[] = [
   {
     text: '홈',
     path: '',
-    display: true,
+    // display:true,
     Component: Home,
+  },
+  {
+    text: '어바웃',
+    path: 'about',
+    HydrateFallback: () => <p>loading..</p>,
+    lazy: async () => {
+      const mod = await import('@/pages/About');
+
+      return {
+        Component: mod.default,
+        // loader:mod.loader,
+        // action:''
+      };
+    },
   },
 ];
 
+// 타입 안정성을 위해 configRoutes 구성
 export const routes = [
   {
     path: '/',
     Component: Root,
-    children: configRoutes(navigation), // RouteObject[],
+    children: configRoutes(navigation), // RouteObject[]
   },
 ];
 
@@ -25,3 +42,5 @@ const router = createBrowserRouter(routes, {
 });
 
 export default router;
+
+export const navigationItems = getNavigationItems(navigation);
