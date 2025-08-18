@@ -1,8 +1,9 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import '@/styles/style.css';
+import '@/styles/style.css'
 
 import App from './App';
+
 
 const container = document.getElementById('react-app');
 
