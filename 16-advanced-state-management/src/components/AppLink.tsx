@@ -1,4 +1,4 @@
-// import { Helmet } from "react-helmet-async"
+// import { Helmet } from "@dr.pogodin/react-helmet"
 
 /* 
 
@@ -16,6 +16,7 @@ noreferrer
 */
 
 import tw from '@/utils/tw';
+import { memo } from 'react';
 
 interface Props {
   children: React.ReactNode;
@@ -46,4 +47,4 @@ function AppLink({
     </a>
   );
 }
-export default AppLink;
+export default memo(AppLink, () => true);
