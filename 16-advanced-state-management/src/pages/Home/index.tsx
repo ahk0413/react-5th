@@ -7,6 +7,7 @@ import Counter_ from "@/miniApp/Counter/index_"
 // import { Helmet } from "react-helmet"
 import { Helmet } from "@dr.pogodin/react-helmet"
 import { useShallow } from "zustand/shallow"
+import Switcher from "@/miniApp/Switcher/Switch"
 
 
 
@@ -107,6 +108,19 @@ function Home() {
           <p>간단한 카운터 앱의 상태를 리듀서를 사용해 관리합니다.</p>
 
           <CounterReducer/>
+
+          <Divider />
+
+          <h2 lang="en" className="uppercase">Switcher</h2>
+          <p>Switch의 상태를 CustomHook or 리듀서를 사용해 관리합니다.</p>
+
+          <Switcher />
+          <Divider />
+
+          <Divider />
+
+          <Divider />
+
 
 
         </div>
